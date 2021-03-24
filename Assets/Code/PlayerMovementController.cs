@@ -135,7 +135,25 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Floor"))
         {
             jumpsRemaining = MaxNumberOfJumps;
-        } 
+        }
+        if (collision.collider.gameObject.CompareTag("Prop")) {
+            Prop prop = collision.gameObject.GetComponent<Prop>();
+            if (prop != null)
+            {
+                if (currentHealth != 3)
+                {
+                    currentHealth += 1;
+                    if (healthBarObj != null)
+                    {
+                        healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
+                        animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                    }
+                }
+                Destroy(collision.collider.gameObject);
+                
+            }
+        }
+
     }
 
     public bool IsGrounded()
