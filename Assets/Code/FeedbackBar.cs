@@ -23,7 +23,6 @@ public class FeedbackBar : MonoBehaviour
     public float HighlightDelayTime = 0.25f;
     // The time it takes the highlight bar to shrink to the new current amount.
     public float HighlightTransitionTime = 0.05f;
-
     // Colors for UI
     public Color BackColor = new Color(0.8f, 0.8f, 0.85f, 1f);
     public Color HighlightColor = new Color(1f, 1f, 1f, 1f);
@@ -72,7 +71,7 @@ public class FeedbackBar : MonoBehaviour
     void Update()
     {
         // Skip scaling if new value has not been set
-        if (targetPercent >= 1.0f)
+        if (targetPercent > 1.0f)
             return;
 
         // Lerp bar scale
@@ -120,7 +119,6 @@ public class FeedbackBar : MonoBehaviour
         // because the new action will override it.
         timer = 0.0f;
         barSizePrevious = barSprite.transform.localScale.x;
-
         // If the bar level increases, then no delay is needed for the highlight
         if (newValue > currentValue)
         {

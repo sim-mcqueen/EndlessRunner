@@ -17,7 +17,7 @@ using UnityEngine;
 public class RandomSpawner : MonoBehaviour
 {
     // Object spawn timing
-    public Vector2 SpawnInterval = new Vector2(0, 1);
+    public Vector2 SpawnInterval = new Vector2(3, 4);
     // Whether to align object spawn positions to grid
     public bool AlignSpawnPosition = false;
 
