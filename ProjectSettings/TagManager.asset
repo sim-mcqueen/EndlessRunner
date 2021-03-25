@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Prop
   - JokerCard
+  - Spade
   layers:
   - Default
   - TransparentFX
