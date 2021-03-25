@@ -32,6 +32,7 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject distanceObj = null;
     private float startingX = 0;
     private PlayerAnimationManager animationManager;
+    private float invulnerableTime = -5f;
 
     // Start is called before the first frame update
     void Start()
@@ -110,26 +111,36 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Obstacle"))
         {
             Obstacle obstacle = collision.gameObject.GetComponent<Obstacle>();
-
-            if (obstacle != null)
+            if (invulnerableTime >= (Time.time - 5))
             {
-                currentHealth -= obstacle.Damage;
-                // Game Over
-                if (currentHealth <= 0)
+                print("HIT BUT JOKER ACTIVE");
+            }
+            else
+            {
+                
+
+                if (obstacle != null)
                 {
-                    // Load score level
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
-                }
-                if (obstacle.DestroyOnPlayerCollision)
-                {
-                    Destroy(collision.collider.gameObject);
-                }
-                if (healthBarObj != null)
-                {
-                    healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
-                    animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                    currentHealth -= obstacle.Damage;
+                    // Game Over
+                    if (currentHealth <= 0)
+                    {
+                        // Load score level
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
+                    }
+                    
+                    if (healthBarObj != null)
+                    {
+                        healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
+                        animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                    }
                 }
             }
+            if (obstacle.DestroyOnPlayerCollision)
+            {
+                Destroy(collision.collider.gameObject);
+            }
+
         }
         // Hit the floor
         if (collision.collider.gameObject.CompareTag("Floor"))
@@ -152,6 +163,11 @@ public class PlayerMovementController : MonoBehaviour
                 Destroy(collision.collider.gameObject);
                 
             }
+        }
+        if(collision.collider.gameObject.CompareTag("JokerCard"))
+        {
+            invulnerableTime = Time.time;
+            Destroy(collision.collider.gameObject);
         }
 
     }
