@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Obstacle
   - Prop
+  - JokerCard
   layers:
   - Default
   - TransparentFX
