@@ -32,10 +32,12 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject distanceObj = null;
     private float startingX = 0;
     private PlayerAnimationManager animationManager;
+    private Rigidbody2D myRB;
 
     // Start is called before the first frame update
     void Start()
     {
+        myRB = GetComponent<Rigidbody2D>();
         healthBarObj = GameObject.Find(nameOfHealthDisplayObject);
         distanceObj = GameObject.Find(nameOfDistanceLabelObject);
         animationManager = GetComponent<PlayerAnimationManager>();
@@ -68,7 +70,8 @@ public class PlayerMovementController : MonoBehaviour
             {
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
                 var jump_vec = new Vector3(0,JumpHeight,0);
-                gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
+                // gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
+                myRB.velocity = Vector2.up * JumpHeight;
                 jumpsRemaining -= 1;
             }
         }
