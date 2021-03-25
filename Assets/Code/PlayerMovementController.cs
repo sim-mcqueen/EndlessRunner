@@ -33,7 +33,6 @@ public class PlayerMovementController : MonoBehaviour
     private float startingX = 0;
     private PlayerAnimationManager animationManager;
     private float invulnerableTime = -5f;
-    private int SpadeAmmo = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -170,12 +169,7 @@ public class PlayerMovementController : MonoBehaviour
             invulnerableTime = Time.time;
             Destroy(collision.collider.gameObject);
         }
-        if (collision.collider.gameObject.CompareTag("Spade"))
-        {
-            SpadeAmmo += 1;
-            print("Spade Ammo: " + SpadeAmmo);
-            Destroy(collision.collider.gameObject);
-        }
+        
 
     }
 
