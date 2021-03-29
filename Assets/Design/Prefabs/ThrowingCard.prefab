@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2962079985408299177}
   - component: {fileID: 531784182888570987}
   - component: {fileID: 7257495435638526594}
-  - component: {fileID: 6424192162532650719}
+  - component: {fileID: 3272038440456581546}
   m_Layer: 0
   m_Name: ThrowingCard
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6424192162532650719
+--- !u!114 &3272038440456581546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1007335998170753932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: def0d03681745d4448fc69395db4bc97, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e413896a340b6e47adf767ff311378c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
