@@ -1,4 +1,15 @@
-﻿using System.Collections;
+﻿//------------------------------------------------------------------------------
+//
+// File Name:	SpadeCard.cs
+// Desc:        Provides player with ammo on pickup
+// Author(s):	Sim McQueen
+// Project:		Endless Runner
+// Course:		WANIC VGP
+//
+// Copyright © 2021 DigiPen (USA) Corporation.
+//
+//------------------------------------------------------------------------------
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

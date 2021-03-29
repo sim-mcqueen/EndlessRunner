@@ -1,8 +1,14 @@
-﻿/****************
-* Name: Andrew Dahlman-Oeth
-* Date:
-* Desc:
-****************/
+﻿//------------------------------------------------------------------------------
+//
+// File Name:	SpeedIncrease.cs
+// Desc:        Increases speed at a certain milestone (i.e. every 50 units)
+// Author(s):	Andrew Dahlman-Oeth
+// Project:		Endless Runner
+// Course:		WANIC VGP
+//
+// Copyright © 2021 DigiPen (USA) Corporation.
+//
+//------------------------------------------------------------------------------
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,8 +1,10 @@
 ﻿//------------------------------------------------------------------------------
 //
-// File Name:	RandomSpawner.cs
+// File Name:	FloorSpawner.cs
+// Desc:        Spawns objects randomly on the floor
 // Author(s):	Jeremy Kings (j.kings) - Unity Project
 //              Nathan Mueller - original Zero Engine project
+//              Andrew Dahlman-Oeth
 // Project:		Endless Runner
 // Course:		WANIC VGP
 //
@@ -14,7 +16,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewRandomSpawner : MonoBehaviour
+public class FloorSpawner : MonoBehaviour
 {
     // Object spawn timing
     public Vector2 SpawnInterval = new Vector2(0, 1);
