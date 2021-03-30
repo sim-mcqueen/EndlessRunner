@@ -9,6 +9,7 @@ TagManager:
   - Prop
   - JokerCard
   - Spade
+  - Destructible
   layers:
   - Default
   - TransparentFX

@@ -143,6 +143,40 @@ public class PlayerMovementController : MonoBehaviour
             }
 
         }
+        if (collision.collider.gameObject.CompareTag("Destructible"))
+        {
+            DestructibleObstacles destructible = collision.gameObject.GetComponent<DestructibleObstacles>();
+            if (invulnerableTime >= (Time.time - 5))
+            {
+                print("HIT BUT JOKER ACTIVE");
+            }
+            else
+            {
+
+
+                if (destructible != null)
+                {
+                    currentHealth -= destructible.Damage;
+                    // Game Over
+                    if (currentHealth <= 0)
+                    {
+                        // Load score level
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("ScoreScreen");
+                    }
+
+                    if (healthBarObj != null)
+                    {
+                        healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
+                        animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                    }
+                }
+            }
+
+            if (destructible.DestroyOnPlayerCollision)
+            {
+                Destroy(collision.collider.gameObject);
+            }
+        }
         // Hit the floor
         if (collision.collider.gameObject.CompareTag("Floor"))
         {
