@@ -57,7 +57,7 @@ MonoBehaviour:
   HighlightTransitionTime: 0.05
   BackColor: {r: 0.8, g: 0.8, b: 0.85, a: 1}
   HighlightColor: {r: 1, g: 1, b: 1, a: 1}
-  BarColor: {r: 1, g: 0.61960787, b: 0.68235296, a: 1}
+  BarColor: {r: 0.49411765, g: 0.09411765, b: 0.15686275, a: 1}
   MaxValue: 100
 --- !u!222 &2460205386467211290
 CanvasRenderer:
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6179246, b: 0.6823385, a: 1}
+  m_Color: {r: 0.49056602, g: 0.09024564, b: 0.15627788, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

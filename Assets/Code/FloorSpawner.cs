@@ -59,7 +59,7 @@ public class FloorSpawner : MonoBehaviour
 
         // Determine spawn position
         Vector3 spawnPosition = transform.position 
-            + new Vector3(0, -1f, 0);
+            + new Vector3(0, 0, 0);
 
         GameObject spawnedObject = null;
 
