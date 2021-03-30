@@ -130,6 +130,7 @@ public class PlayerMovementController : MonoBehaviour
                 if (obstacle != null)
                 {
                     currentHealth -= obstacle.Damage;
+                    audioSource.PlayOneShot(audioClips[1]);
                     // Game Over
                     if (currentHealth <= 0)
                     {
@@ -164,6 +165,7 @@ public class PlayerMovementController : MonoBehaviour
                 if (destructible != null)
                 {
                     currentHealth -= destructible.Damage;
+                    audioSource.PlayOneShot(audioClips[1]);
                     // Game Over
                     if (currentHealth <= 0)
                     {
