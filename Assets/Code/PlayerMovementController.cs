@@ -23,7 +23,8 @@ public class PlayerMovementController : MonoBehaviour
     public int MaxNumberOfJumps = 2;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
-    
+    public List<AudioClip> audioClips = new List<AudioClip>();
+
     private int jumpsRemaining = 0;
     private int currentHealth = 0;
     private string nameOfHealthDisplayObject = "HealthBar";
@@ -34,6 +35,7 @@ public class PlayerMovementController : MonoBehaviour
     private PlayerAnimationManager animationManager;
     private float invulnerableTime = -5f;
     public SpadeScript SS;
+    private AudioSource audioSource = null;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,9 @@ public class PlayerMovementController : MonoBehaviour
 
         // Reset score
         PlayerSaveData.DistanceRun = 0;
+
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,6 +77,8 @@ public class PlayerMovementController : MonoBehaviour
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
+                audioSource.clip = audioClips[0];
+                audioSource.Play();
             }
         }
         // Sliding
