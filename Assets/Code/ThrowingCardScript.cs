@@ -20,6 +20,10 @@ public class ThrowingCardScript : MonoBehaviour
             Destroy(hitInfo.gameObject);
             Destroy(gameObject);
         }
+        else if(hitInfo.gameObject.CompareTag("Obstacle")) 
+        {
+            Destroy(gameObject);
+        }
     }
 
 
