@@ -839,7 +839,7 @@ PrefabInstance:
         type: 3}
       propertyPath: audioClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 9fc903a992ccc504b88ede32f017cf4f, type: 3}
+      objectReference: {fileID: 8300000, guid: 36b0cee559e14a1408122a247f27194f, type: 3}
     - target: {fileID: 5702680126517417177, guid: 44a2f1fd3e785c143ba8383e2edee21b,
         type: 3}
       propertyPath: m_RootOrder
