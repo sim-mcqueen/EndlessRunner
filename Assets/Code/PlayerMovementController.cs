@@ -77,8 +77,7 @@ public class PlayerMovementController : MonoBehaviour
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
-                audioSource.clip = audioClips[0];
-                audioSource.Play();
+                audioSource.PlayOneShot(audioClips[0]);
             }
         }
         // Sliding
@@ -130,7 +129,6 @@ public class PlayerMovementController : MonoBehaviour
                 if (obstacle != null)
                 {
                     currentHealth -= obstacle.Damage;
-                    audioSource.PlayOneShot(audioClips[1]);
                     // Game Over
                     if (currentHealth <= 0)
                     {
@@ -142,6 +140,7 @@ public class PlayerMovementController : MonoBehaviour
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                        audioSource.PlayOneShot(audioClips[3]);
                     }
                 }
             }
@@ -165,7 +164,6 @@ public class PlayerMovementController : MonoBehaviour
                 if (destructible != null)
                 {
                     currentHealth -= destructible.Damage;
-                    audioSource.PlayOneShot(audioClips[1]);
                     // Game Over
                     if (currentHealth <= 0)
                     {
@@ -177,6 +175,7 @@ public class PlayerMovementController : MonoBehaviour
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                        audioSource.PlayOneShot(audioClips[3]);
                     }
                 }
             }
@@ -190,6 +189,7 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Floor"))
         {
             jumpsRemaining = MaxNumberOfJumps;
+            audioSource.PlayOneShot(audioClips[2]);
         }
         if (collision.collider.gameObject.CompareTag("Prop")) {
             Prop prop = collision.gameObject.GetComponent<Prop>();
@@ -202,6 +202,7 @@ public class PlayerMovementController : MonoBehaviour
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
+                        audioSource.PlayOneShot(audioClips[4]);
                     }
                 }
                 Destroy(collision.collider.gameObject);
@@ -212,12 +213,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             invulnerableTime = Time.time;
             Destroy(collision.collider.gameObject);
+            audioSource.PlayOneShot(audioClips[4]);
         }
         if (collision.collider.gameObject.CompareTag("Spade"))
         {
             SS.SpadeAmmo += 1;
             print("Spade Ammo: " + SS.SpadeAmmo);
             Destroy(collision.collider.gameObject);
+            audioSource.PlayOneShot(audioClips[4]);
         }
 
 
