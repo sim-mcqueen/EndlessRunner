@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 682945703289775149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 682945703083537058}
   m_Father: {fileID: 0}
@@ -188,7 +188,11 @@ MonoBehaviour:
   SlideKey: 304
   audioClips:
   - {fileID: 8300000, guid: 36b0cee559e14a1408122a247f27194f, type: 3}
+  - {fileID: 8300000, guid: 81df70dcc478186499e4525d7769f5df, type: 3}
+  - {fileID: 8300000, guid: bfa3b56b4c5087e4280ada3b2084277c, type: 3}
   - {fileID: 8300000, guid: c63e66b30d184ea4d877a521d93a1016, type: 3}
+  - {fileID: 8300000, guid: 644d6f2102e94c544b63780eb3038c9d, type: 3}
+  hurtParticle: {fileID: 0}
   SS: {fileID: 682945702776877618}
 --- !u!95 &5050662930524411056
 Animator:

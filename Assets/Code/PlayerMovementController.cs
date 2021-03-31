@@ -24,7 +24,7 @@ public class PlayerMovementController : MonoBehaviour
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
     public List<AudioClip> audioClips = new List<AudioClip>();
-
+    public ParticleSystem hurtParticle;
     private int jumpsRemaining = 0;
     private bool floorCheck = true;
     private int currentHealth = 0;
@@ -62,6 +62,7 @@ public class PlayerMovementController : MonoBehaviour
 
 
         audioSource = GetComponent<AudioSource>();
+        hurtParticle = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
