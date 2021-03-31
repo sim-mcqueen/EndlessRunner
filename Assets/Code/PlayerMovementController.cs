@@ -24,7 +24,7 @@ public class PlayerMovementController : MonoBehaviour
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
     public List<AudioClip> audioClips = new List<AudioClip>();
-    public ParticleSystem hurtParticle;
+    private ParticleSystem hurtParticle;
     private int jumpsRemaining = 0;
     private bool floorCheck = true;
     private int currentHealth = 0;
@@ -75,22 +75,22 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (jumpsRemaining == 2)
             {
+                audioSource.PlayOneShot(audioClips[0], 0.3f);
                 floorCheck = false;
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
-                audioSource.PlayOneShot(audioClips[0], 0.3f);
             }
             // Only difference is the jump sound
             else if (jumpsRemaining == 1)
             {
+                audioSource.PlayOneShot(audioClips[1], 0.3f);
                 floorCheck = false;
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
-                audioSource.PlayOneShot(audioClips[1], 0.3f);
             }
         }
         // Sliding
@@ -141,6 +141,8 @@ public class PlayerMovementController : MonoBehaviour
 
                 if (obstacle != null)
                 {
+                    audioSource.PlayOneShot(audioClips[3], 0.5f);
+                    HurtParticles.hurtPlr = true;
                     currentHealth -= obstacle.Damage;
                     // Game Over
                     if (currentHealth <= 0)
@@ -151,9 +153,9 @@ public class PlayerMovementController : MonoBehaviour
                     
                     if (healthBarObj != null)
                     {
+
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
-                        audioSource.PlayOneShot(audioClips[3], 0.5f);
                     }
                 }
             }
@@ -176,6 +178,7 @@ public class PlayerMovementController : MonoBehaviour
 
                 if (destructible != null)
                 {
+                    audioSource.PlayOneShot(audioClips[3], 0.3f);
                     currentHealth -= destructible.Damage;
                     // Game Over
                     if (currentHealth <= 0)
@@ -188,7 +191,7 @@ public class PlayerMovementController : MonoBehaviour
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
-                        audioSource.PlayOneShot(audioClips[3], 0.3f);
+                        
                     }
                 }
             }
@@ -204,8 +207,9 @@ public class PlayerMovementController : MonoBehaviour
             jumpsRemaining = MaxNumberOfJumps;
             if(!floorCheck)
             {
-                floorCheck = true;
                 audioSource.PlayOneShot(audioClips[2], 0.1f);
+                floorCheck = true;
+                
             }
             
         }
@@ -215,12 +219,13 @@ public class PlayerMovementController : MonoBehaviour
             {
                 if (currentHealth != 3)
                 {
+                    audioSource.PlayOneShot(audioClips[4], 0.2f);
                     currentHealth += 1;
                     if (healthBarObj != null)
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
-                        audioSource.PlayOneShot(audioClips[4], 0.2f);
+                        
                     }
                 }
                 Destroy(collision.collider.gameObject);
@@ -229,16 +234,16 @@ public class PlayerMovementController : MonoBehaviour
         }
         if(collision.collider.gameObject.CompareTag("JokerCard"))
         {
+            audioSource.PlayOneShot(audioClips[4], 0.4f);
             invulnerableTime = Time.time;
             Destroy(collision.collider.gameObject);
-            audioSource.PlayOneShot(audioClips[4], 0.4f);
         }
         if (collision.collider.gameObject.CompareTag("Spade"))
         {
+            audioSource.PlayOneShot(audioClips[4], 0.4f);
             SS.SpadeAmmo += 1;
             print("Spade Ammo: " + SS.SpadeAmmo);
             Destroy(collision.collider.gameObject);
-            audioSource.PlayOneShot(audioClips[4], 0.4f);
         }
 
 
