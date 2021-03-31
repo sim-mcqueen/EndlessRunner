@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1269464464655200746}
   - component: {fileID: 7137842658493202113}
   - component: {fileID: 6855184739868961593}
+  - component: {fileID: 2755566611378076557}
   m_Layer: 0
   m_Name: JokerCard
   m_TagString: JokerCard
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3183144100498278091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9250c48921a532e41b36d04f3d0c0f80, type: 3}
-  m_Color: {r: 0.65422106, g: 0, b: 0.8018868, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c463a30c81e606b46b76d046acaf9d1e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -122,14 +123,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.19, y: 0.28}
+    newSize: {x: 0.19, y: 0.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.22, y: 0.32}
   m_EdgeRadius: 0
 --- !u!114 &6855184739868961593
 MonoBehaviour:
@@ -143,5 +144,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167f3989822e12b47a0ea943948dbf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
+  DestroyOnPlayerCollision: 1
   DestroyXLimit: -10
+--- !u!114 &2755566611378076557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183144100498278091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a7ef0be65f43e4da29a6f332b4741c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: c463a30c81e606b46b76d046acaf9d1e, type: 3}
+  - {fileID: 21300000, guid: eebe7671a422b8144aed04d3fbc92746, type: 3}
+  - {fileID: 21300000, guid: a08c14e85385a214aa506edc1b0f0732, type: 3}
+  - {fileID: 21300000, guid: 476962f46c441be44a10cf95423c72d6, type: 3}
+  - {fileID: 21300000, guid: 71376b4da8ad8aa4880d518a69debc54, type: 3}
+  - {fileID: 21300000, guid: ece3eb1344da1ae428523ee48b2ca737, type: 3}
+  - {fileID: 21300000, guid: f93465b0874a50242a70573fa8136e65, type: 3}
+  - {fileID: 21300000, guid: 520e7c9b4ac3f0b43860699b6b44ca38, type: 3}
+  - {fileID: 21300000, guid: 6ad3311df98e3fa458f1bfd6d557ed52, type: 3}
+  - {fileID: 21300000, guid: 83ccf61f21d00f44d9c3a3176a4be223, type: 3}
+  - {fileID: 21300000, guid: 690700308b7cbdc46b38f8a8ca9d0858, type: 3}
+  - {fileID: 21300000, guid: c1f83c0a3c7892d41b1c18c824855030, type: 3}
+  - {fileID: 21300000, guid: 04cae8f04c15d6046a97dbb4a01ba20a, type: 3}
+  - {fileID: 21300000, guid: dd87d103946f6a94db448808c6d6cc62, type: 3}
+  - {fileID: 21300000, guid: b9e0644ad1e21424499c1625bf888892, type: 3}
+  - {fileID: 21300000, guid: af64e5f486af1804cbf8d08ba36dd8a0, type: 3}
+  - {fileID: 21300000, guid: 0ffb8364c6ece664087ca39448d0bb9f, type: 3}
+  - {fileID: 21300000, guid: d23141494db6c17489ea8b04a48b43eb, type: 3}
+  - {fileID: 21300000, guid: b508fa0bae571ac409d6bc3a49404380, type: 3}
+  - {fileID: 21300000, guid: be89bd73b1cff3a42898539dc89ea1d2, type: 3}
+  - {fileID: 21300000, guid: 09f591778197f0a4fae7dac532ada30e, type: 3}
+  - {fileID: 21300000, guid: 70c25c67c753f0a42895bd9f43256f89, type: 3}
+  - {fileID: 21300000, guid: a35dde9b017454e4e9ab8e8e587ca6c4, type: 3}
+  - {fileID: 21300000, guid: e737341d026c82b46919991fa5ab86e1, type: 3}
+  - {fileID: 21300000, guid: 4ca6a2bea4438c742b0431d89bfbc25e, type: 3}
+  - {fileID: 21300000, guid: c463a30c81e606b46b76d046acaf9d1e, type: 3}
+  - {fileID: 21300000, guid: c463a30c81e606b46b76d046acaf9d1e, type: 3}
+  - {fileID: 21300000, guid: c463a30c81e606b46b76d046acaf9d1e, type: 3}
+  - {fileID: 21300000, guid: c463a30c81e606b46b76d046acaf9d1e, type: 3}
+  - {fileID: 21300000, guid: c463a30c81e606b46b76d046acaf9d1e, type: 3}
+  card: {fileID: 1175010419866075622}
+  frameRate: 0.1
