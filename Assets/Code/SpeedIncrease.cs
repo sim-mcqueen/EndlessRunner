@@ -22,7 +22,7 @@ public class SpeedIncrease : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("BetterPlayer");
     }
 
     // Update is called once per frame
