@@ -26,6 +26,7 @@ public class PlayerMovementController : MonoBehaviour
     public List<AudioClip> audioClips = new List<AudioClip>();
 
     private int jumpsRemaining = 0;
+    private bool floorCheck = true;
     private int currentHealth = 0;
     private string nameOfHealthDisplayObject = "HealthBar";
     private string nameOfDistanceLabelObject = "DistanceLabel";
@@ -73,11 +74,12 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (jumpsRemaining > 0)
             {
+                floorCheck = false;
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
                 var jump_vec = new Vector3(0,JumpHeight,0);
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
-                audioSource.PlayOneShot(audioClips[0]);
+                audioSource.PlayOneShot(audioClips[0], 0.3f);
             }
         }
         // Sliding
@@ -140,7 +142,7 @@ public class PlayerMovementController : MonoBehaviour
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
-                        audioSource.PlayOneShot(audioClips[3]);
+                        audioSource.PlayOneShot(audioClips[3], 0.5f);
                     }
                 }
             }
@@ -175,7 +177,7 @@ public class PlayerMovementController : MonoBehaviour
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
-                        audioSource.PlayOneShot(audioClips[3]);
+                        audioSource.PlayOneShot(audioClips[3], 0.3f);
                     }
                 }
             }
@@ -189,7 +191,12 @@ public class PlayerMovementController : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Floor"))
         {
             jumpsRemaining = MaxNumberOfJumps;
-            audioSource.PlayOneShot(audioClips[2]);
+            if(!floorCheck)
+            {
+                floorCheck = true;
+                audioSource.PlayOneShot(audioClips[2], 0.1f);
+            }
+            
         }
         if (collision.collider.gameObject.CompareTag("Prop")) {
             Prop prop = collision.gameObject.GetComponent<Prop>();
@@ -202,7 +209,7 @@ public class PlayerMovementController : MonoBehaviour
                     {
                         healthBarObj.GetComponent<FeedbackBar>().SetValue(currentHealth);
                         animationManager.SwitchTo(PlayerAnimationStates.Hurt);
-                        audioSource.PlayOneShot(audioClips[4]);
+                        audioSource.PlayOneShot(audioClips[4], 0.2f);
                     }
                 }
                 Destroy(collision.collider.gameObject);
@@ -213,14 +220,14 @@ public class PlayerMovementController : MonoBehaviour
         {
             invulnerableTime = Time.time;
             Destroy(collision.collider.gameObject);
-            audioSource.PlayOneShot(audioClips[4]);
+            audioSource.PlayOneShot(audioClips[4], 0.4f);
         }
         if (collision.collider.gameObject.CompareTag("Spade"))
         {
             SS.SpadeAmmo += 1;
             print("Spade Ammo: " + SS.SpadeAmmo);
             Destroy(collision.collider.gameObject);
-            audioSource.PlayOneShot(audioClips[4]);
+            audioSource.PlayOneShot(audioClips[4], 0.4f);
         }
 
 
