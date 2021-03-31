@@ -190,4 +190,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a76634c2e1817314381edc824db61292, type: 3}
   - {fileID: 21300000, guid: a76634c2e1817314381edc824db61292, type: 3}
   card: {fileID: 1175010419866075622}
-  frameRate: 0.1
+  frameRate: 0.07
