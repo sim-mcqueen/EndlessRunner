@@ -72,7 +72,7 @@ public class PlayerMovementController : MonoBehaviour
         // Jumping
         if (Input.GetKeyDown(JumpKey))
         {
-            if (jumpsRemaining > 0)
+            if (jumpsRemaining == 2)
             {
                 floorCheck = false;
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
@@ -80,6 +80,16 @@ public class PlayerMovementController : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
                 jumpsRemaining -= 1;
                 audioSource.PlayOneShot(audioClips[0], 0.3f);
+            }
+            // Only difference is the jump sound
+            else if (jumpsRemaining == 1)
+            {
+                floorCheck = false;
+                animationManager.SwitchTo(PlayerAnimationStates.Jump);
+                var jump_vec = new Vector3(0,JumpHeight,0);
+                gameObject.GetComponent<Rigidbody2D>().velocity = jump_vec;
+                jumpsRemaining -= 1;
+                audioSource.PlayOneShot(audioClips[1], 0.3f);
             }
         }
         // Sliding
