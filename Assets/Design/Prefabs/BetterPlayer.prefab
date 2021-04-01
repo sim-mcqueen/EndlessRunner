@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 682945703289775149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 682945703083537058}
   - {fileID: 4882327565475392708}
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 10
   MaxHealth: 3
-  JumpHeight: 3
+  JumpHeight: 5
   MaxNumberOfJumps: 2
   JumpKey: 32
   SlideKey: 304
@@ -197,7 +197,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 644d6f2102e94c544b63780eb3038c9d, type: 3}
   dustPS: {fileID: 4924262691595530440}
   jumpPS: {fileID: 6288287755118306763}
-  isInvulnerable: 0
   SS: {fileID: 682945702776877618}
 --- !u!95 &5050662930524411056
 Animator:
@@ -329,7 +328,6 @@ MonoBehaviour:
   InvulnTime: 0.25
   CurrentState: 0
   PreviousState: 0
-  PlayerScript: {fileID: 682945703289775120}
 --- !u!114 &5552994399826830788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +657,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.35
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1040,7 +1038,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: -0.11, y: -0.85, z: 0}
+    m_Position: {x: -0.26, y: -3.12, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 0.25, z: 1}
     placementMode: 0
@@ -5471,7 +5469,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.35
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5852,7 +5850,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0
     donutRadius: 0.2
-    m_Position: {x: -0.3, y: -0.81, z: 0}
+    m_Position: {x: -1.27, y: -3.06, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 0.54, y: 0, z: 1}
     placementMode: 0
