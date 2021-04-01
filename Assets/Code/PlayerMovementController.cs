@@ -24,7 +24,8 @@ public class PlayerMovementController : MonoBehaviour
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode SlideKey = KeyCode.LeftShift;
     public List<AudioClip> audioClips = new List<AudioClip>();
-    private ParticleSystem hurtParticle;
+    public ParticleSystem dustPS;
+    public ParticleSystem jumpPS;
     private int jumpsRemaining = 0;
     private bool floorCheck = true;
     private int currentHealth = 0;
@@ -41,6 +42,7 @@ public class PlayerMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayDust();
         healthBarObj = GameObject.Find(nameOfHealthDisplayObject);
         distanceObj = GameObject.Find(nameOfDistanceLabelObject);
         animationManager = GetComponent<PlayerAnimationManager>();
@@ -62,7 +64,6 @@ public class PlayerMovementController : MonoBehaviour
 
 
         audioSource = GetComponent<AudioSource>();
-        hurtParticle = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -73,8 +74,13 @@ public class PlayerMovementController : MonoBehaviour
         // Jumping
         if (Input.GetKeyDown(JumpKey))
         {
-            if (jumpsRemaining == 2)
+            if (jumpsRemaining > 0)
             {
+                StopDust();
+                PlayJump();
+            }
+            if (jumpsRemaining == 2)
+            {               
                 audioSource.PlayOneShot(audioClips[0], 0.3f);
                 floorCheck = false;
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
@@ -101,6 +107,7 @@ public class PlayerMovementController : MonoBehaviour
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)
         {
+            PlayDust();
             animationManager.SwitchTo(PlayerAnimationStates.Run);
         }
         // Falling
@@ -142,7 +149,6 @@ public class PlayerMovementController : MonoBehaviour
                 if (obstacle != null)
                 {
                     audioSource.PlayOneShot(audioClips[3], 0.5f);
-                    HurtParticles.hurtPlr = true;
                     currentHealth -= obstacle.Damage;
                     // Game Over
                     if (currentHealth <= 0)
@@ -252,5 +258,17 @@ public class PlayerMovementController : MonoBehaviour
     public bool IsGrounded()
     {
         return jumpsRemaining == MaxNumberOfJumps;
+    }
+    // Particle Systems
+
+    void PlayDust(){
+        dustPS.Play();
+    }
+    void StopDust(){
+        dustPS.Stop();
+    }
+
+    void PlayJump(){
+        jumpPS.Play();
     }
 }
