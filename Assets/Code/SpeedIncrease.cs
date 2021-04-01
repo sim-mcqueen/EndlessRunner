@@ -15,9 +15,10 @@ using UnityEngine;
 
 public class SpeedIncrease : MonoBehaviour
 {
-    public float dist;
+    private float dist;
     public float cooldown = 1.0f;
-    public float stamp;
+    public float amount = 1f;
+    private float stamp;
     private GameObject player = null;
 
     void Start()
@@ -35,7 +36,7 @@ public class SpeedIncrease : MonoBehaviour
         if((Mathf.Round(dist) % 50f == 0) && (stamp <= Time.time) && (Mathf.Round(dist) != 0))
         {
             Debug.Log(Mathf.Round(dist));
-            player.GetComponent<PlayerMovementController>().MoveSpeed += 0.5f;
+            player.GetComponent<PlayerMovementController>().MoveSpeed += amount;
             // Cooldown timer so we don't increase speed more than once
             stamp = Time.time + cooldown;
 
