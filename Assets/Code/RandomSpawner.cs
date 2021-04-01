@@ -65,7 +65,7 @@ public class RandomSpawner : MonoBehaviour
 
         // Determine spawn position
         Vector3 spawnPosition = transform.position 
-            + new Vector3(0, Random.Range(0, transform.localScale.y), 0);
+            + new Vector3(0, 0, 0);
 
         GameObject spawnedObject = null;
 
