@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 682945703289775149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15, y: -2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 682945703083537058}
   - {fileID: 4882327565475392708}
@@ -112,7 +112,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 444702640956841479, guid: ae554726716afc944959aa5153d69af1, type: 3}
+  m_Sprite: {fileID: 7389810262213979056, guid: 950e303defc35eb4cbacf15a912f7f5f,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,18 +158,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.91, y: 1.59}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.8}
+  m_Size: {x: 0.89, y: 1.6}
   m_EdgeRadius: 0
 --- !u!114 &682945703289775120
 MonoBehaviour:
@@ -196,6 +197,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 644d6f2102e94c544b63780eb3038c9d, type: 3}
   dustPS: {fileID: 4924262691595530440}
   jumpPS: {fileID: 6288287755118306763}
+  isInvulnerable: 0
   SS: {fileID: 682945702776877618}
 --- !u!95 &5050662930524411056
 Animator:
@@ -327,6 +329,7 @@ MonoBehaviour:
   InvulnTime: 0.25
   CurrentState: 0
   PreviousState: 0
+  PlayerScript: {fileID: 682945703289775120}
 --- !u!114 &5552994399826830788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,9 +357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4534604211602498b2d14edd68713d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dist: 0
   cooldown: 1
-  stamp: 0
+  amount: 1
 --- !u!114 &682945702776877618
 MonoBehaviour:
   m_ObjectHideFlags: 0
