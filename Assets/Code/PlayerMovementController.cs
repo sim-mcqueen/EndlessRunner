@@ -81,7 +81,7 @@ public class PlayerMovementController : MonoBehaviour
             }
             if (jumpsRemaining == 2)
             {               
-                audioSource.PlayOneShot(audioClips[0], 0.3f);
+                audioSource.PlayOneShot(audioClips[0], 0.4f);
                 floorCheck = false;
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
                 var jump_vec = new Vector3(0,JumpHeight,0);
@@ -91,7 +91,7 @@ public class PlayerMovementController : MonoBehaviour
             // Only difference is the jump sound
             else if (jumpsRemaining == 1)
             {
-                audioSource.PlayOneShot(audioClips[1], 0.3f);
+                audioSource.PlayOneShot(audioClips[1], 0.7f);
                 floorCheck = false;
                 animationManager.SwitchTo(PlayerAnimationStates.Jump);
                 var jump_vec = new Vector3(0,JumpHeight,0);
@@ -148,7 +148,7 @@ public class PlayerMovementController : MonoBehaviour
 
                 if (obstacle != null)
                 {
-                    audioSource.PlayOneShot(audioClips[3], 0.5f);
+                    audioSource.PlayOneShot(audioClips[3], 0.3f);
                     currentHealth -= obstacle.Damage;
                     // Game Over
                     if (currentHealth <= 0)
@@ -225,7 +225,7 @@ public class PlayerMovementController : MonoBehaviour
             {
                 if (currentHealth != 3)
                 {
-                    audioSource.PlayOneShot(audioClips[4], 0.2f);
+                    audioSource.PlayOneShot(audioClips[4], 0.1f);
                     currentHealth += 1;
                     if (healthBarObj != null)
                     {
@@ -240,13 +240,13 @@ public class PlayerMovementController : MonoBehaviour
         }
         if(collision.collider.gameObject.CompareTag("JokerCard"))
         {
-            audioSource.PlayOneShot(audioClips[4], 0.4f);
+            audioSource.PlayOneShot(audioClips[4], 0.2f);
             invulnerableTime = Time.time;
             Destroy(collision.collider.gameObject);
         }
         if (collision.collider.gameObject.CompareTag("Spade"))
         {
-            audioSource.PlayOneShot(audioClips[4], 0.4f);
+            audioSource.PlayOneShot(audioClips[4], 0.1f);
             SS.SpadeAmmo += 1;
             print("Spade Ammo: " + SS.SpadeAmmo);
             Destroy(collision.collider.gameObject);
