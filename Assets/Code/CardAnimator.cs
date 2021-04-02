@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿//------------------------------------------------------------------------------
+//
+// File Name:	CardAnimator.cs
+// Author(s):	Sim McQueen
+//              Andrew Dahlman-Oeth
+// Project:		Endless Runner
+// Course:		WANIC VGP
+//
+// Copyright © 2021 DigiPen (USA) Corporation.
+//
+//------------------------------------------------------------------------------
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 

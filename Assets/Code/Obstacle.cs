@@ -3,6 +3,8 @@
 // File Name:	Obstacle.cs
 // Author(s):	Jeremy Kings (j.kings) - Unity Project
 //              Nathan Mueller - original Zero Engine project
+//              Sim McQueen
+//              Andrew Dahlman-Oeth
 // Project:		Endless Runner
 // Course:		WANIC VGP
 //
