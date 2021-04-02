@@ -107,7 +107,7 @@ public class PlayerMovementController : MonoBehaviour
         //     animationManager.SwitchTo(PlayerAnimationStates.Slide);
         // }
         // Running
-        else if (!Input.GetKey(SlideKey) && grounded)
+        else if (grounded)
         {
             PlayDust();
             animationManager.SwitchTo(PlayerAnimationStates.Run);

@@ -28,6 +28,7 @@ public class ThrowingCardScript : MonoBehaviour
         }
         else if(hitInfo.gameObject.CompareTag("Obstacle")) 
         {
+            Destroy(hitInfo.gameObject);
             Destroy(gameObject);
         }
     }
