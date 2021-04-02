@@ -100,10 +100,10 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
         // Sliding
-        else if (Input.GetKey(SlideKey) && grounded)
-        {
-            animationManager.SwitchTo(PlayerAnimationStates.Slide);
-        }
+        // else if (Input.GetKey(SlideKey) && grounded)
+        // {
+        //     animationManager.SwitchTo(PlayerAnimationStates.Slide);
+        // }
         // Running
         else if (!Input.GetKey(SlideKey) && grounded)
         {
