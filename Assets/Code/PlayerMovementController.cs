@@ -3,6 +3,8 @@
 // File Name:	PlayerMovementController.cs
 // Author(s):	Jeremy Kings (j.kings) - Unity Project
 //              Nathan Mueller - original Zero Engine project
+//              Andrew Dahlman-Oeth
+//              Sim McQueen
 // Project:		Endless Runner
 // Course:		WANIC VGP
 //
